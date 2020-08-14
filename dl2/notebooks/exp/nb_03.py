@@ -4,8 +4,6 @@
 #################################################
 # file to edit: dev_nb/03_Minibatch_Training-Imad.ipynb
 
-import sys
-sys.path.append('../')
 from exp.nb_02 import *
 import torch.nn.functional as F
 from torch import optim

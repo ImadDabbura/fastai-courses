@@ -16,13 +16,17 @@ def is_export(cell):
 
 
 def getSortedFiles(allFiles, upTo=None):
-    '''Returns all the notebok files sorted by name.
-       allFiles = True : returns all files
-                = '*_*.ipynb' : returns this pattern
-       upTo = None : no upper limit
-            = filter : returns all files up to 'filter' included
-       The sorting optioj is important to ensure that the notebok are executed in correct order.
-    '''
+    """
+    Returns all the notebok files sorted by name.
+
+    allFiles : boolean
+        True returns this ppatern '*_*.ipynb'
+    upTo : int or None
+        Returns all files up to 'filter' included. If None, then there is no
+        upper limit.
+
+    The sorting option is important to ensure that the notebook are executed in correct order.
+    """
     import glob
     ret = []
     if (allFiles == True):

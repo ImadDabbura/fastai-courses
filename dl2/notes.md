@@ -23,4 +23,4 @@ When you create it, you understand it better. This would allow you to tweak ever
     3. More generalizable architectures.
     4. Regularization.
     5. Reduce architecture complexity.
-3. There is no step 3. Basically visualizing model's input and make sure everything looks reasonable.  
+3. There is no step 3. Basically visualizing model's output and make sure everything looks reasonable.  

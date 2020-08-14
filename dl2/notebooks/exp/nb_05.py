@@ -5,6 +5,7 @@
 # file to edit: dev_nb/05_Anneal-Imad.ipynb
 
 from exp.nb_04 import *
+import functools
 
 def create_learner(model_func, loss_func, data):
     return Learner(*model_func(data), loss_func, data)
@@ -38,23 +39,21 @@ class ParamScheduler(Callback):
         self.pname = pname
         self.sched_func = sched_func
 
-    def set_param(self):
-        for pg in self.opt.param_groups:
-            pg[self.pname] = self.sched_func(self.n_epochs / self.epochs)
-
     def begin_batch(self):
         if self.in_train:
-            self.set_param()
+            for pg in self.opt.param_groups:
+                pg[self.pname] = self.sched_func(self.n_epochs / self.epochs)
 
 def annealer(func):
-    def wrapper_annealer(start, end):
-        return partial(func, start, end)
-    return wrapper_annealer
+    functools.wraps(func)
+
+    def annealer_wrapper(*args, **kwargs):
+        return functools.partial(func, *args)
+    return annealer_wrapper
 
 
 @annealer
-def sched_lin(start, end, pos):
-    '''Linear scheduler'''
+def lin_sched(start, end, pos):
     return start + pos * (end - start)
 
 @annealer
@@ -72,12 +71,15 @@ def sched_exp(start, end, pos):
     return start * (end / start)**pos
 
 def combine_scheds(pcts, scheds):
+    """Combine different scheduler of hyper-parameters during training."""
     assert sum(pcts) == 1.
-    pcts = tensor([0] + listify(pcts))
+    pcts = torch.tensor([0] + listify(pcts))
     assert torch.all(pcts >= 0)
     pcts = torch.cumsum(pcts, 0)
     def _inner(pos):
+        # Determine which scheduler to use
         idx = (pos >= pcts).nonzero().max()
+        # Determine the actual position to be used by the chosen scheduler
         actual_pos = (pos - pcts[idx]) / (pcts[idx + 1] - pcts[idx])
         return scheds[idx](actual_pos)
 
