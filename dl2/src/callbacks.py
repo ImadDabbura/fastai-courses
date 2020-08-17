@@ -1,8 +1,12 @@
 import re
+import time
 from collections.abc import Iterable
+from functools import partial
 
 import matplotlib.pyplot as plt
 import torch
+from fastprogress.fastprogress import format_time, master_bar, progress_bar
+
 from .utils import listify
 
 
@@ -53,17 +57,17 @@ class TrainEvalCallback(Callback):
         self.run.pct_train = 0
 
     def after_batch(self):
-        if self.run.training:
+        if self.run.in_train:
             self.run.n_iters += 1
             self.run.pct_train += 1 / (self.iters * self.n_epochs)
 
     def begin_train(self):
         self.model.train()
-        self.run.training = True
+        self.run.in_train = True
         self.run.pct_train = self.epoch / self.n_epochs
 
     def begin_validate(self):
-        self.run.training = False
+        self.run.in_train = False
         self.model.eval()
 
 
@@ -95,103 +99,6 @@ class CancelFitException(Exception):
     """Stop training and exit"""
 
     pass
-
-
-class Runner:
-    def __init__(self, cbs=None, cb_funcs=None):
-        self.cbs = listify(cbs)
-        for cb_func in listify(cb_funcs):
-            cb = cb_func()
-            setattr(self, cb.name, cb)
-            self.cbs.append(cb)
-        self.cbs = [TrainEvalCallback()] + self.cbs
-
-    @property
-    def model(self):
-        return self.learn.model
-
-    @property
-    def opt(self):
-        return self.learn.opt
-
-    @property
-    def loss_func(self):
-        return self.learn.loss_func
-
-    @property
-    def data(self):
-        return self.learn.data
-
-    def _one_batch(self, xb, yb):
-        self.xb, self.yb = xb, yb
-        try:
-            self("begin_batch")
-            self.pred = self.model(self.xb)
-            self("after_pred")
-            self.loss = self.loss_func(self.pred, self.yb)
-            self("after_loss")
-            if not self.training:
-                return
-            self.loss.backward()
-            self("after_backward")
-            self.opt.step()
-            self("after_step")
-            self.opt.zero_grad()
-        except CancelBatchException:
-            self("after_cancel_batch")
-        finally:
-            self("after_batch")
-
-    def _all_batches(self, dl):
-        self.iters = len(dl)
-        for xb, yb in dl:
-            self._one_batch(xb, yb)
-
-    def fit(self, epochs, learn):
-        self.n_epochs = epochs
-        self.learn = learn
-
-        try:
-            for cb in self.cbs:
-                cb.set_runner(self)
-
-            self("begin_fit")
-            for epoch in range(self.n_epochs):
-                try:
-                    self("begin_epoch")
-                    self.epoch = epoch
-
-                    try:
-                        self("begin_train")
-                        self._all_batches(self.data.train_dl)
-                    except CancelTrainException:
-                        self("after_cancel_train")
-                    finally:
-                        self("after_train")
-
-                    try:
-                        self("begin_validate")
-                        with torch.no_grad():
-                            self._all_batches(self.data.valid_dl)
-                    except CancelValidException:
-                        self("after_cancel_validate")
-                    finally:
-                        self("after_validate")
-                except CancelEpochException:
-                    self("after_cancel_epoch")
-                finally:
-                    self("after_epoch")
-        except CancelFitException:
-            self("after_cancel_fit")
-        finally:
-            self("after_fit")
-            self.learn = None
-
-    def __call__(self, cb_name):
-        res = False
-        for cb in sorted(self.cbs, key=lambda x: x._order):
-            res = cb(cb_name) or res
-        return res
 
 
 class AvgStats:
@@ -233,20 +140,57 @@ class AvgStatsCallback(Callback):
         self.train_stats = AvgStats(metrics, True)
         self.valid_stats = AvgStats(metrics, False)
 
+    def begin_fit(self):
+        metrics_names = ['loss'] + \
+            [metric.__name__ for metric in self.train_stats.metrics]
+        names = ['epoch'] + [f'train_' for name in metrics_names] + \
+            [f'valid_' for name in metrics_names] + ['time']
+        self.logger(names)
+
     def begin_epoch(self):
         """Reset metrics/loss."""
         self.train_stats.reset()
         self.valid_stats.reset()
+        self.start_time = time.time()
 
     def after_loss(self):
         """Evaluate metrics and accumulate them."""
-        stats = self.train_stats if self.training else self.valid_stats
+        stats = self.train_stats if self.in_train else self.valid_stats
         with torch.no_grad():
             stats.accumulate(self.run)
 
     def after_epoch(self):
-        print(self.train_stats)
-        print(self.valid_stats)
+        stats = [str(self.epoch)]
+        for o in [self.train_stats, self.valid_stats]:
+            stats += [f'{v:.6f}' for v in o.avg_stats]
+        stats += [format_time(time.time() - self.start_time)]
+        self.logger(stats)
+
+
+class ProgressCallback(Callback):
+    """Add progress bar as logger for tracking metrics."""
+    _order = -1
+
+    def begin_fit(self):
+        self.mbar = master_bar(range(self.n_epochs))
+        self.mbar.on_iter_begin()
+        self.run.logger = partial(self.mbar.write, table=True)
+
+    def after_fit(self):
+        self.mbar.on_iter_end()
+
+    def after_batch(self):
+        self.pb.update(self.iter)
+
+    def begin_epoch(self):
+        self.set_pb()
+
+    def begin_validate(self):
+        self.set_pb()
+
+    def set_pb(self):
+        self.pb = progress_bar(self.dl, parent=self.mbar)
+        self.mbar.update(self.epoch)
 
 
 class Recorder(Callback):
@@ -255,7 +199,7 @@ class Recorder(Callback):
         self.losses = []
 
     def after_batch(self):
-        if not self.training:
+        if not self.in_train:
             return
         for pg, lr in zip(self.opt.param_groups, self.lrs):
             lr.append(pg["lr"])
@@ -293,7 +237,7 @@ class ParamScheduler(Callback):
             pg[self.pname] = f(self.pct_train)
 
     def begin_batch(self):
-        if self.training:
+        if self.in_train:
             self.set_param()
 
 
@@ -307,7 +251,7 @@ class LR_Find(Callback):
         self.best_loss = 1e9
 
     def begin_batch(self):
-        if not self.training:
+        if not self.in_train:
             return
         pos = self.n_iters / self.max_iter
         lr = self.min_lr * (self.max_lr / self.min_lr) ** pos
