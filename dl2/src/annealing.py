@@ -35,6 +35,10 @@ def sched_exp(start, end, pos):
     return start * (end / start) ** pos
 
 
+def cos_1cycle_anneal(start=.1, high=.3, end=.05):
+    return [sched_cos(start, high), sched_cos(high, end)]
+
+
 def combine_scheds(pcts, scheds):
     """Combine different scheduler of hyper-parameters during training."""
     assert sum(pcts) == 1.
