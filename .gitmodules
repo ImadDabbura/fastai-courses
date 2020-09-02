@@ -1,3 +1,9 @@
 [submodule "course-v3"]
 	path = course-v3
 	url = https://github.com/fastai/course-v3.git
+[submodule "course20"]
+	path = course20
+	url = https://github.com/fastai/course20
+[submodule "fastbook"]
+	path = fastbook
+	url = https://github.com/fastai/fastbook
