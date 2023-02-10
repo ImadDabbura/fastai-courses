@@ -1,6 +1,8 @@
+from collections import OrderedDict
 from collections.abc import Iterable
-import torch
+import mimetypes
 import torch.nn as nn
+import torch.functional as F
 
 
 class GeneralRelu(nn.Module):
@@ -30,7 +32,30 @@ def listify(obj):
     return [obj]
 
 
+def tuplify(obj):
+    """Convert `obj` to tuple."""
+    if isinstance(obj, tuple):
+        return obj
+    return tuple(listify(obj))
+
+
+def setify(obj):
+    """Convert `obj` to set"""
+    if isinstance(obj, set):
+        return obj
+    return set(listify(obj))
+
+
+def uniqueify(x, sort=False):
+    res = list(OrderedDict.fromkeys(x).keys())
+    if sort:
+        res.sort()
+    return res
+
+
 class ListContainer:
+    """Extensible list container that adds some functionality to a list"""
+
     def __init__(self, items):
         self.items = listify(items)
 
@@ -55,7 +80,9 @@ class ListContainer:
         del self.items[i]
 
     def __repr__(self):
-        res = f"{self.__class__.__name__} ({len(self)} items)\n{self.items[:10]}"
+        res = (
+            f"{self.__class__.__name__} ({len(self)} items)\n{self.items[:10]}"
+        )
         if len(self) > 10:
             res = res[:-1] + "...]"
         return res

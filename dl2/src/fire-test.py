@@ -4,9 +4,9 @@ generating CLI from any Python object such as class or function or even the
 whole script itself.
 '''
 import fire
+from typing import Optional
 
-
-def hello(name='World'):
+def hello(name: Optional[str] = 'World'):
     '''Test funtion.'''
     return f'Hello {name}!'
 

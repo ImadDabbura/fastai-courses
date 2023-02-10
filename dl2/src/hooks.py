@@ -6,12 +6,12 @@ import torch
 class Hook:
     """Register a hook into the module (forward/backward)."""
 
-    def __init__(self, module, func, is_forward=True):
+    def __init__(self, module, func, is_forward=True, **kwargs):
         self.is_forward = is_forward
         if self.is_forward:
-            self.hook = module.register_forward_hook(partial(func, self))
+            self.hook = module.register_forward_hook(partial(func, self, **kwargs))
         else:
-            self.hook = module.register_backward_hook(partial(func, self))
+            self.hook = module.register_backward_hook(partial(func, self, **kwargs))
 
     def remove(self):
         self.hook.remove()
@@ -23,8 +23,8 @@ class Hook:
 class Hooks:
     """Register hooks on all modules."""
 
-    def __init__(self, modules, func, is_forward):
-        self.hooks = [Hook(module, func, is_forward) for module in modules]
+    def __init__(self, modules, func, is_forward, **kwargs):
+        self.hooks = [Hook(module, func, is_forward, **kwargs) for module in modules]
 
     def __getitem__(self, idx):
         return self.hooks[idx]

@@ -1,0 +1,254 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AverageGrad	optimizer.py	/^class AverageGrad(Stat):$/;"	c	language:Python
+AvgStats	callbacks.py	/^class AvgStats:$/;"	c	language:Python
+AvgStatsCallback	callbacks.py	/^class AvgStatsCallback(Callback):$/;"	c	language:Python
+BatchNorm	norm.py	/^class BatchNorm(nn.Module):$/;"	c	language:Python
+Callback	callbacks.py	/^class Callback:$/;"	c	language:Python
+CancelBatchException	callbacks.py	/^class CancelBatchException(Exception):$/;"	c	language:Python
+CancelEpochException	callbacks.py	/^class CancelEpochException(Exception):$/;"	c	language:Python
+CancelFitException	callbacks.py	/^class CancelFitException(Exception):$/;"	c	language:Python
+CancelTrainException	callbacks.py	/^class CancelTrainException(Exception):$/;"	c	language:Python
+CancelValidException	callbacks.py	/^class CancelValidException(Exception):$/;"	c	language:Python
+CategoryProcessor	processors.py	/^class CategoryProcessor(Processor):$/;"	c	language:Python
+CudaCallback	callbacks.py	/^class CudaCallback(Callback):$/;"	c	language:Python
+DataBunch	data.py	/^class DataBunch:$/;"	c	language:Python
+GeneralRelu	utils.py	/^class GeneralRelu(nn.Module):$/;"	c	language:Python
+Hook	hooks.py	/^class Hook:$/;"	c	language:Python
+Hooks	hooks.py	/^class Hooks:$/;"	c	language:Python
+IMAGE_EXTENSIONS	data.py	/^IMAGE_EXTENSIONS = [$/;"	v	language:Python
+ImageList	data.py	/^class ImageList(ItemList):$/;"	c	language:Python
+ImageList	experiments.py	/^class ImageList(ItemList):$/;"	c	language:Python
+InstanceNorm	norm.py	/^class InstanceNorm(nn.Module):$/;"	c	language:Python
+ItemList	data.py	/^class ItemList(ListContainer):$/;"	c	language:Python
+ItemList	experiments.py	/^class ItemList(ListContainer):$/;"	c	language:Python
+LR_Find	callbacks.py	/^class LR_Find(Callback):$/;"	c	language:Python
+LabeledData	data.py	/^class LabeledData:$/;"	c	language:Python
+LayerNorm	norm.py	/^class LayerNorm(nn.Module):$/;"	c	language:Python
+Learner	learner.py	/^class Learner:$/;"	c	language:Python
+ListContainer	experiments.py	/^class ListContainer:$/;"	c	language:Python
+ListContainer	utils.py	/^class ListContainer:$/;"	c	language:Python
+MakeRGB	data.py	/^class MakeRGB(Transform):$/;"	c	language:Python
+Mixup	callbacks.py	/^class Mixup(Callback):$/;"	c	language:Python
+Optimizer	optimizer.py	/^class Optimizer:$/;"	c	language:Python
+ParamScheduler	callbacks.py	/^class ParamScheduler(Callback):$/;"	c	language:Python
+Processor	processors.py	/^class Processor:$/;"	c	language:Python
+ProgressCallback	callbacks.py	/^class ProgressCallback(Callback):$/;"	c	language:Python
+Recorder	callbacks.py	/^class Recorder(Callback):$/;"	c	language:Python
+RunningBatchNorm	norm.py	/^class RunningBatchNorm(nn.Module):$/;"	c	language:Python
+SplitData	data.py	/^class SplitData:$/;"	c	language:Python
+SplitData	experiments.py	/^class SplitData:$/;"	c	language:Python
+Stat	optimizer.py	/^class Stat:$/;"	c	language:Python
+StatefulOptimizer	optimizer.py	/^class StatefulOptimizer(Optimizer):$/;"	c	language:Python
+TextList	data.py	/^class TextList(ItemList):$/;"	c	language:Python
+TrainEvalCallback	callbacks.py	/^class TrainEvalCallback(Callback):$/;"	c	language:Python
+Transform	data.py	/^class Transform:$/;"	c	language:Python
+__call__	callbacks.py	/^    def __call__(self, cb_name):$/;"	m	language:Python	class:Callback	file:
+__call__	data.py	/^    def __call__(self, item):$/;"	m	language:Python	class:MakeRGB	file:
+__call__	learner.py	/^    def __call__(self, cb_name):$/;"	m	language:Python	class:Learner	file:
+__call__	processors.py	/^    def __call__(self, items):$/;"	m	language:Python	class:CategoryProcessor	file:
+__constants__	norm.py	/^    __constants__ = ["eps", "mom"]$/;"	v	language:Python	class:RunningBatchNorm
+__constants__	norm.py	/^    __constants__ = ["eps"]$/;"	v	language:Python	class:BatchNorm
+__constants__	norm.py	/^    __constants__ = ["eps"]$/;"	v	language:Python	class:InstanceNorm
+__constants__	norm.py	/^    __constants__ = ["eps"]$/;"	v	language:Python	class:LayerNorm
+__del__	hooks.py	/^    def __del__(self):$/;"	m	language:Python	class:Hook	file:
+__del__	hooks.py	/^    def __del__(self):$/;"	m	language:Python	class:Hooks	file:
+__delitem__	experiments.py	/^    def __delitem__(self, x):$/;"	m	language:Python	class:ListContainer	file:
+__delitem__	utils.py	/^    def __delitem__(self, i):$/;"	m	language:Python	class:ListContainer	file:
+__enter__	hooks.py	/^    def __enter__(self, *args):$/;"	m	language:Python	class:Hooks	file:
+__exit__	hooks.py	/^    def __exit__(self, *args):$/;"	m	language:Python	class:Hooks	file:
+__getattr__	callbacks.py	/^    def __getattr__(self, k):$/;"	m	language:Python	class:Callback	file:
+__getattr__	data.py	/^    def __getattr__(self, k):$/;"	m	language:Python	class:SplitData	file:
+__getitem__	data.py	/^    def __getitem__(self, idx):$/;"	m	language:Python	class:ItemList	file:
+__getitem__	data.py	/^    def __getitem__(self, idx):$/;"	m	language:Python	class:LabeledData	file:
+__getitem__	experiments.py	/^    def __getitem__(self, idx):$/;"	m	language:Python	class:ItemList	file:
+__getitem__	experiments.py	/^    def __getitem__(self, idx):$/;"	m	language:Python	class:ListContainer	file:
+__getitem__	hooks.py	/^    def __getitem__(self, idx):$/;"	m	language:Python	class:Hooks	file:
+__getitem__	utils.py	/^    def __getitem__(self, idx):$/;"	m	language:Python	class:ListContainer	file:
+__init__	callbacks.py	/^    def __init__(self, alpha=0.4):$/;"	m	language:Python	class:Mixup
+__init__	callbacks.py	/^    def __init__(self, device):$/;"	m	language:Python	class:CudaCallback
+__init__	callbacks.py	/^    def __init__(self, max_iter=100, min_lr=1e-6, max_lr=10):$/;"	m	language:Python	class:LR_Find
+__init__	callbacks.py	/^    def __init__(self, metrics):$/;"	m	language:Python	class:AvgStatsCallback
+__init__	callbacks.py	/^    def __init__(self, metrics, training=True):$/;"	m	language:Python	class:AvgStats
+__init__	callbacks.py	/^    def __init__(self, pname, sched_funcs):$/;"	m	language:Python	class:ParamScheduler
+__init__	data.py	/^    def __init__(self, items, path=".", tfms=None):$/;"	m	language:Python	class:ItemList
+__init__	data.py	/^    def __init__(self, train, valid):$/;"	m	language:Python	class:SplitData
+__init__	data.py	/^    def __init__(self, train_dl, valid_dl, c_in=None, c_out=None):$/;"	m	language:Python	class:DataBunch
+__init__	data.py	/^    def __init__(self, x, y, proc_x=None, proc_y=None):$/;"	m	language:Python	class:LabeledData
+__init__	experiments.py	/^    def __init__(self, items):$/;"	m	language:Python	class:ListContainer
+__init__	experiments.py	/^    def __init__(self, items, path=".", tfms=None):$/;"	m	language:Python	class:ItemList
+__init__	experiments.py	/^    def __init__(self, train, valid):$/;"	m	language:Python	class:SplitData
+__init__	hooks.py	/^    def __init__(self, module, func, is_forward=True, **kwargs):$/;"	m	language:Python	class:Hook
+__init__	hooks.py	/^    def __init__(self, modules, func, is_forward, **kwargs):$/;"	m	language:Python	class:Hooks
+__init__	learner.py	/^    def __init__(self, model, data, loss_func, opt, cbs=None, cb_funcs=None):$/;"	m	language:Python	class:Learner
+__init__	norm.py	/^    def __init__(self, eps):$/;"	m	language:Python	class:LayerNorm
+__init__	norm.py	/^    def __init__(self, nf, mom, eps):$/;"	m	language:Python	class:BatchNorm
+__init__	norm.py	/^    def __init__(self, nf, mom, eps):$/;"	m	language:Python	class:InstanceNorm
+__init__	norm.py	/^    def __init__(self, nf, mom=0.1, eps=1e-5):$/;"	m	language:Python	class:RunningBatchNorm
+__init__	optimizer.py	/^    def __init__(self, parameters, learning_rate):$/;"	m	language:Python	class:Optimizer
+__init__	optimizer.py	/^    def __init__(self, parameters, steppers, **defaults):$/;"	m	language:Python	class:Optimizer
+__init__	optimizer.py	/^    def __init__(self, parameters, steppers, stats=None, **defaults):$/;"	m	language:Python	class:StatefulOptimizer
+__init__	processors.py	/^    def __init__(self):$/;"	m	language:Python	class:CategoryProcessor
+__init__	utils.py	/^    def __init__(self, items):$/;"	m	language:Python	class:ListContainer
+__init__	utils.py	/^    def __init__(self, leak=None, sub=None, maxv=None):$/;"	m	language:Python	class:GeneralRelu
+__iter__	experiments.py	/^    def __iter__(self):$/;"	m	language:Python	class:ListContainer	file:
+__iter__	hooks.py	/^    def __iter__(self):$/;"	m	language:Python	class:Hooks	file:
+__iter__	utils.py	/^    def __iter__(self):$/;"	m	language:Python	class:ListContainer	file:
+__len__	data.py	/^    def __len__(self):$/;"	m	language:Python	class:LabeledData	file:
+__len__	experiments.py	/^    def __len__(self):$/;"	m	language:Python	class:ListContainer	file:
+__len__	hooks.py	/^    def __len__(self):$/;"	m	language:Python	class:Hooks	file:
+__len__	utils.py	/^    def __len__(self):$/;"	m	language:Python	class:ListContainer	file:
+__repr__	callbacks.py	/^    def __repr__(self):$/;"	m	language:Python	class:AvgStats	file:
+__repr__	data.py	/^    def __repr__(self):$/;"	m	language:Python	class:ItemList	file:
+__repr__	data.py	/^    def __repr__(self):$/;"	m	language:Python	class:LabeledData	file:
+__repr__	data.py	/^    def __repr__(self):$/;"	m	language:Python	class:SplitData	file:
+__repr__	experiments.py	/^    def __repr__(self):$/;"	m	language:Python	class:ItemList	file:
+__repr__	experiments.py	/^    def __repr__(self):$/;"	m	language:Python	class:ListContainer	file:
+__repr__	experiments.py	/^    def __repr__(self):$/;"	m	language:Python	class:SplitData	file:
+__repr__	utils.py	/^    def __repr__(self):$/;"	m	language:Python	class:ListContainer	file:
+__setitem__	experiments.py	/^    def __setitem__(self, idx, x):$/;"	m	language:Python	class:ListContainer	file:
+__setitem__	utils.py	/^    def __setitem__(self, i, o):$/;"	m	language:Python	class:ListContainer	file:
+__setstate__	data.py	/^    def __setstate__(self, data):$/;"	m	language:Python	class:SplitData	file:
+_all_batches	learner.py	/^    def _all_batches(self, dl):$/;"	m	language:Python	class:Learner
+_defaults	optimizer.py	/^    _defaults = {"momentum": 0.9}$/;"	v	language:Python	class:AverageGrad
+_defaults	optimizer.py	/^    _defaults = {}$/;"	v	language:Python	class:Stat
+_deprocess	processors.py	/^    def _deprocess(self, idx):$/;"	m	language:Python	class:CategoryProcessor
+_get	data.py	/^    def _get(self, item):$/;"	m	language:Python	class:ItemList
+_get	experiments.py	/^    def _get(self, o):$/;"	m	language:Python	class:ItemList
+_get_files	data.py	/^def _get_files(p, fs, extensions=None):$/;"	f	language:Python
+_get_files	experiments.py	/^def _get_files(path, files, extension=None):$/;"	f	language:Python
+_inner	annealing.py	/^    def _inner(pos):$/;"	f	language:Python	function:combine_scheds
+_label_by_func	data.py	/^def _label_by_func(ds, func, cls=ItemList):$/;"	f	language:Python
+_one_batch	learner.py	/^    def _one_batch(self, i, xb, yb):$/;"	m	language:Python	class:Learner
+_order	callbacks.py	/^    _order = -1$/;"	v	language:Python	class:ProgressCallback
+_order	callbacks.py	/^    _order = -10$/;"	v	language:Python	class:AvgStatsCallback
+_order	callbacks.py	/^    _order = -10$/;"	v	language:Python	class:TrainEvalCallback
+_order	callbacks.py	/^    _order = 0$/;"	v	language:Python	class:Callback
+_order	callbacks.py	/^    _order = 50$/;"	v	language:Python	class:Recorder
+_order	callbacks.py	/^    _order = 60$/;"	v	language:Python	class:LR_Find
+_order	callbacks.py	/^    _order = 60$/;"	v	language:Python	class:ParamScheduler
+_order	callbacks.py	/^    _order = 90$/;"	v	language:Python	class:Mixup
+_order	data.py	/^    _order = 0$/;"	v	language:Python	class:Transform
+accumulate	callbacks.py	/^    def accumulate(self, learner):$/;"	m	language:Python	class:AvgStats
+add_cb	learner.py	/^    def add_cb(self, cb):$/;"	m	language:Python	class:Learner
+add_cbs	learner.py	/^    def add_cbs(self, cbs):$/;"	m	language:Python	class:Learner
+after_batch	callbacks.py	/^    def after_batch(self):$/;"	m	language:Python	class:Mixup
+after_batch	callbacks.py	/^    def after_batch(self):$/;"	m	language:Python	class:ProgressCallback
+after_batch	callbacks.py	/^    def after_batch(self):$/;"	m	language:Python	class:Recorder
+after_batch	callbacks.py	/^    def after_batch(self):$/;"	m	language:Python	class:TrainEvalCallback
+after_epoch	callbacks.py	/^    def after_epoch(self):$/;"	m	language:Python	class:AvgStatsCallback
+after_fit	callbacks.py	/^    def after_fit(self):$/;"	m	language:Python	class:Mixup
+after_fit	callbacks.py	/^    def after_fit(self):$/;"	m	language:Python	class:ProgressCallback
+after_loss	callbacks.py	/^    def after_loss(self):$/;"	m	language:Python	class:AvgStatsCallback
+after_step	callbacks.py	/^    def after_step(self):$/;"	m	language:Python	class:LR_Find
+all_stats	callbacks.py	/^    def all_stats(self):$/;"	m	language:Python	class:AvgStats
+annealer	annealing.py	/^def annealer(func):$/;"	f	language:Python
+annealer_wrapper	annealing.py	/^    def annealer_wrapper(*args, **kwargs):$/;"	f	language:Python	function:annealer
+avg_stats	callbacks.py	/^    def avg_stats(self):$/;"	m	language:Python	class:AvgStats
+before_batch	callbacks.py	/^    def before_batch(self):$/;"	m	language:Python	class:CudaCallback
+before_batch	callbacks.py	/^    def before_batch(self):$/;"	m	language:Python	class:LR_Find
+before_batch	callbacks.py	/^    def before_batch(self):$/;"	m	language:Python	class:Mixup
+before_batch	callbacks.py	/^    def before_batch(self):$/;"	m	language:Python	class:ParamScheduler
+before_epoch	callbacks.py	/^    def before_epoch(self):$/;"	m	language:Python	class:AvgStatsCallback
+before_epoch	callbacks.py	/^    def before_epoch(self):$/;"	m	language:Python	class:ProgressCallback
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:AvgStatsCallback
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:CudaCallback
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:Mixup
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:ParamScheduler
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:ProgressCallback
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:Recorder
+before_fit	callbacks.py	/^    def before_fit(self):$/;"	m	language:Python	class:TrainEvalCallback
+before_train	callbacks.py	/^    def before_train(self):$/;"	m	language:Python	class:TrainEvalCallback
+before_validate	callbacks.py	/^    def before_validate(self):$/;"	m	language:Python	class:ProgressCallback
+before_validate	callbacks.py	/^    def before_validate(self):$/;"	m	language:Python	class:TrainEvalCallback
+camel2snake	callbacks.py	/^    def camel2snake(name):$/;"	m	language:Python	class:Callback
+combine_scheds	annealing.py	/^def combine_scheds(pcts, scheds):$/;"	f	language:Python
+compose	data.py	/^def compose(x, funcs, *args, order="_order", **kwargs):$/;"	f	language:Python
+compose	experiments.py	/^def compose(x, funcs, *args, order_key="_order", **kwargs):$/;"	f	language:Python
+compute_stats	hooks.py	/^def compute_stats(hook, module, inp, outp, bins, hist_range=(0, 10)):$/;"	f	language:Python
+cos_1cycle_anneal	annealing.py	/^def cos_1cycle_anneal(start=0.1, high=0.3, end=0.05):$/;"	f	language:Python
+deprocess	processors.py	/^    def deprocess(self, idxs):$/;"	m	language:Python	class:CategoryProcessor
+fit	learner.py	/^    def fit(self, epochs, cbs=None, reset_opt=False):$/;"	m	language:Python	class:Learner
+fom_files	experiments.py	/^    def fom_files($/;"	m	language:Python	class:ImageList
+forward	norm.py	/^    def forward(self, x):$/;"	m	language:Python	class:BatchNorm
+forward	norm.py	/^    def forward(self, x):$/;"	m	language:Python	class:InstanceNorm
+forward	norm.py	/^    def forward(self, x):$/;"	m	language:Python	class:LayerNorm
+forward	norm.py	/^    def forward(self, x):$/;"	m	language:Python	class:RunningBatchNorm
+forward	utils.py	/^    def forward(self, x):$/;"	m	language:Python	class:GeneralRelu
+from_files	data.py	/^    def from_files($/;"	m	language:Python	class:ImageList
+from_files	data.py	/^    def from_files($/;"	m	language:Python	class:TextList
+get	data.py	/^    def get(self, fn):$/;"	m	language:Python	class:ImageList
+get	data.py	/^    def get(self, i):$/;"	m	language:Python	class:TextList
+get	data.py	/^    def get(self, item):$/;"	m	language:Python	class:ItemList
+get	experiments.py	/^    def get(self, idx):$/;"	m	language:Python	class:ItemList
+getSortedFiles	notebook2script.py	/^def getSortedFiles(allFiles, upTo=None):$/;"	f	language:Python
+get_defaults	optimizer.py	/^def get_defaults(stepper):$/;"	f	language:Python
+get_dls	data.py	/^def get_dls(train_ds, valid_ds, bs, **kwargs):$/;"	f	language:Python
+get_files	data.py	/^def get_files(path, extensions=None, include=None, recurse=False):$/;"	f	language:Python
+get_files	experiments.py	/^def get_files(path, recurse=False, extension=None, include=None):$/;"	f	language:Python
+get_hist	hooks.py	/^def get_hist(hook):$/;"	f	language:Python
+get_min	hooks.py	/^def get_min(hook, bins_range):$/;"	f	language:Python
+get_params	optimizer.py	/^    def get_params(self):$/;"	m	language:Python	class:Optimizer
+grandparent_splitter	data.py	/^def grandparent_splitter(fn, valid_name="valid", train_name="train"):$/;"	f	language:Python
+hello	fire-test.py	/^def hello(name: Optional[str] = 'World'):$/;"	f	language:Python
+init_state	optimizer.py	/^    def init_state(self, param):$/;"	m	language:Python	class:AverageGrad
+init_state	optimizer.py	/^    def init_state(self, param):$/;"	m	language:Python	class:Stat
+is_export	notebook2script.py	/^def is_export(cell):$/;"	f	language:Python
+l2_reg	optimizer.py	/^def l2_reg(param, learning_rate, weight_decay, **kwargs):$/;"	f	language:Python
+label_by_func	data.py	/^    def label_by_func(cls, il, func, proc_x=None, proc_y=None):$/;"	m	language:Python	class:LabeledData
+label_by_func	data.py	/^def label_by_func(sd, func, proc_x=None, proc_y=None):$/;"	f	language:Python
+lin_shced	annealing.py	/^def lin_shced(start, end, pos):$/;"	f	language:Python
+listify	utils.py	/^def listify(obj):$/;"	f	language:Python
+lsuv_module	init.py	/^def lsuv_module(model, module, xb):$/;"	f	language:Python
+maybe_update	optimizer.py	/^def maybe_update(steppers, defaults, func):$/;"	f	language:Python
+module	notebook2script.py	/^    module = re.sub(r' +$', '', module, flags=re.MULTILINE)$/;"	v	language:Python
+momentum_step	optimizer.py	/^def momentum_step(param, learning_rate, avg_grad, **kwargs):$/;"	f	language:Python
+name	callbacks.py	/^    def name(self):$/;"	m	language:Python	class:Callback
+new	data.py	/^    def new(self, items, cls=None):$/;"	m	language:Python	class:ItemList
+new	experiments.py	/^    def new(self, items, cls=None):$/;"	m	language:Python	class:ItemList
+notebook2script	notebook2script.py	/^def notebook2script(fname=None, allFiles=None, upTo=None):$/;"	f	language:Python
+notebook2scriptSingle	notebook2script.py	/^def notebook2scriptSingle(fname):$/;"	f	language:Python
+obj	data.py	/^    def obj(self, items, idx, procs):$/;"	m	language:Python	class:LabeledData
+output_path	notebook2script.py	/^    output_path = fname.parent\/'exp'\/fname_out$/;"	v	language:Python
+parent_labeler	data.py	/^def parent_labeler(fn):$/;"	f	language:Python
+plot	callbacks.py	/^    def plot(self, skip_last=0, pgid=-1):$/;"	m	language:Python	class:Recorder
+plot_loss	callbacks.py	/^    def plot_loss(self, skip_last=0):$/;"	m	language:Python	class:Recorder
+plot_lr	callbacks.py	/^    def plot_lr(self, pgid=-1):$/;"	m	language:Python	class:Recorder
+process	data.py	/^    def process(self, il, proc):$/;"	m	language:Python	class:LabeledData
+process	processors.py	/^    def process(self, item):$/;"	m	language:Python	class:CategoryProcessor
+process	processors.py	/^    def process(self, items):$/;"	m	language:Python	class:Processor
+read_file	data.py	/^def read_file(fn):$/;"	f	language:Python
+remove	hooks.py	/^    def remove(self):$/;"	m	language:Python	class:Hook
+remove	hooks.py	/^    def remove(self):$/;"	m	language:Python	class:Hooks
+remove_cbs	learner.py	/^    def remove_cbs(self, cbs):$/;"	m	language:Python	class:Learner
+reset	callbacks.py	/^    def reset(self):$/;"	m	language:Python	class:AvgStats
+run_notebook	run_notebook.py	/^def run_notebook(path):$/;"	f	language:Python
+sched_cos	annealing.py	/^def sched_cos(start, end, pos):$/;"	f	language:Python
+sched_exp	annealing.py	/^def sched_exp(start, end, pos):$/;"	f	language:Python
+sched_no	annealing.py	/^def sched_no(start, end, pos):$/;"	f	language:Python
+set_learner	callbacks.py	/^    def set_learner(self, learner):$/;"	m	language:Python	class:Callback
+set_param	callbacks.py	/^    def set_param(self):$/;"	m	language:Python	class:ParamScheduler
+set_pb	callbacks.py	/^    def set_pb(self):$/;"	m	language:Python	class:ProgressCallback
+setify	utils.py	/^def setify(obj):$/;"	f	language:Python
+sgd_step	optimizer.py	/^def sgd_step(param, learning_rate, **kwargs):$/;"	f	language:Python
+split_by_func	data.py	/^    def split_by_func(cls, il, func):$/;"	m	language:Python	class:SplitData
+split_by_func	data.py	/^def split_by_func(items, func):$/;"	f	language:Python
+step	optimizer.py	/^    def step(self):$/;"	m	language:Python	class:Optimizer
+step	optimizer.py	/^    def step(self):$/;"	m	language:Python	class:StatefulOptimizer
+to_databunch	data.py	/^    def to_databunch(self, bs, c_in, c_out, **kwargs):$/;"	m	language:Python	class:SplitData
+train_ds	data.py	/^    def train_ds(self):$/;"	m	language:Python	class:DataBunch
+uniqueify	processors.py	/^def uniqueify(x, sort=False):$/;"	f	language:Python
+uniqueify	utils.py	/^def uniqueify(x, sort=False):$/;"	f	language:Python
+update	optimizer.py	/^    def update(self, param, state, **kwargs):$/;"	m	language:Python	class:Stat
+update	optimizer.py	/^    def update(self, param, state, momentum, **kwargs):$/;"	m	language:Python	class:AverageGrad
+update_stats	norm.py	/^    def update_stats(self, x):$/;"	m	language:Python	class:BatchNorm
+update_stats	norm.py	/^    def update_stats(self, x):$/;"	m	language:Python	class:RunningBatchNorm
+valid_ds	data.py	/^    def valid_ds(self):$/;"	m	language:Python	class:DataBunch
+weight_decay	optimizer.py	/^def weight_decay(param, learning_rate, weight_decay, **kwargs):$/;"	f	language:Python
+x_obj	data.py	/^    def x_obj(self, idx):$/;"	m	language:Python	class:LabeledData
+y_obj	data.py	/^    def y_obj(self, idx):$/;"	m	language:Python	class:LabeledData
+zero_grad	optimizer.py	/^    def zero_grad(self):$/;"	m	language:Python	class:Optimizer
